@@ -48,7 +48,9 @@ toggleMeetingButton.addEventListener('click', () => {
 		timer = setInterval(() => {
 			total = total + increment
 			const totalCost = document.getElementById('total')
-			totalCost.innerText = total.toLocaleString('en-EN', { style: 'currency', currency: 'GBP' })
+			const totalCostString = total.toLocaleString('en-EN', { style: 'currency', currency: 'GBP' })
+			totalCost.innerText = totalCostString
+			document.title = `${totalCostString} – Meeting Cost Live`
 		}, 1000);
 	}
 })
