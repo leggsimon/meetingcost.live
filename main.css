@@ -3,7 +3,8 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	font-variant-caps: small-caps;
+	font-variant-caps: all-small-caps;
+	letter-spacing: 2px;
 }
 
 body {
@@ -29,9 +30,9 @@ h2::first-letter {
 button {
 	--primary: #000000;
 	--secondary: #00000017;
+
 	background-color: white;
 	border: 3px solid var(--primary);
-
 	border-radius: 3em;
 	width: 8em;
 	height: 3em;
@@ -39,18 +40,14 @@ button {
 	text-transform: uppercase;
 	font-weight: bold;
 	color: var(--primary);
-	border-color: var(--primary);
+	letter-spacing: 3px;
+	font-kerning: none;
 }
 
 button:hover {
 	transition: background-color 100ms ease-in, color 100ms ease-in;
 	background-color: var(--secondary);
 	cursor: pointer;
-}
-
-button:focus {
-	/* box-shadow: 0 0 0pt 2pt cyan;
-	outline: none; */
 }
 
 button.start {
@@ -64,7 +61,6 @@ button.pause {
 }
 
 .options-collapsable {
-	/* margin-top: 2em; */
 	margin: 2em;
 	min-width: 300px;
 }
