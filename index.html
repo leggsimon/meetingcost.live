@@ -26,7 +26,14 @@
 			<div class="options">
 				<label class="attendees-label" for="attendees">
 					<span class="attendees-label-text">Number of people:</span>
-					<input type="number" name="attendees" id="attendees" value="2" min="1" />
+					<input
+						type="number"
+						pattern="[0-9]*"
+						name="attendees"
+						id="attendees"
+						value="2"
+						min="1"
+					/>
 				</label>
 				<label class="salary-label" for="averageSalary">
 					<div class="salary-label-text">
