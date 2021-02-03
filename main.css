@@ -1,3 +1,38 @@
+html,
 body {
-	color: blue;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-variant-caps: small-caps;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#total {
+	font-size: 4em;
+	font-variant-numeric: slashed-zero tabular-nums;
+}
+
+h2::first-letter {
+	font-variant-position: super;
+}
+
+button {
+	background-color: white;
+	color: black;
+	border: 2px solid #4caf50;
+	border-radius: 1em;
+	width: 8em;
+	height: 3em;
+	font-size: 1em;
+}
+
+button:hover {
+	transition: background-color 100ms ease-in, color 100ms ease-in;
+	background-color: #4caf50;
+	color: white;
 }

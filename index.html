@@ -9,7 +9,26 @@
 	<body>
 		<h1>Meeting cost live</h1>
 		<h2>Current Cost</h2>
-		<p>£500.00</p>
+		<p id="total">£0.00</p>
+
+		<div class="button-group">
+			<button id="startMeeting">Start</button>
+			<button id="stopMeeting" disabled>Stop</button>
+		</div>
+		<h2>Options</h2>
+
+		<label for="attendees">How many people in the meeting?</label>
+		<input type="number" name="attendees" id="attendees" value="2" min="1" />
+		<label for="averageSalary">Average Salary:</label>
+		<input
+			type="range"
+			name="averageSalary"
+			id="averageSalary"
+			step="5000"
+			min="40000"
+			max="150000"
+		/>
+		<span id="averageSalaryDisplay"></span>
 	</body>
 
 	<script src="./main.js"></script>
