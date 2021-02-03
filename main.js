@@ -1,5 +1,4 @@
-const startMeetingButton = document.getElementById('startMeeting')
-const stopMeetingButton = document.getElementById('stopMeeting')
+const toggleMeetingButton = document.getElementById('toggleMeeting')
 const attendeesInput = document.getElementById('attendees')
 const averageSalaryInput = document.getElementById('averageSalary')
 const averageSalaryDisplay = document.getElementById('averageSalaryDisplay')
@@ -31,25 +30,27 @@ const calculateIncrement = () => {
 	})
 })
 
-startMeetingButton.addEventListener('click', () => {
-	startMeetingButton.setAttribute('disabled', true)
-	stopMeetingButton.removeAttribute('disabled')
+toggleMeetingButton.addEventListener('click', () => {
+	if (timer) {
+		timer = clearInterval(timer)
+		toggleMeetingButton.classList.add('start')
+		toggleMeetingButton.classList.remove('pause')
+		toggleMeetingButton.innerText = 'Start'
+	} else {
+		toggleMeetingButton.classList.add('pause')
+		toggleMeetingButton.classList.remove('start')
+		toggleMeetingButton.innerText = 'Pause'
 
-	increment = increment || calculateIncrement()
+		increment = increment || calculateIncrement()
 
-	console.log(`This meeting will cost £${(increment * 60 * 60).toFixed(2)} if it lasts an hour`)
+		console.log(`This meeting will cost £${(increment * 60 * 60).toFixed(2)} if it lasts an hour`)
 
-	timer = setInterval(() => {
-		total = total + increment
-		const totalCost = document.getElementById('total')
-		totalCost.innerText = total.toLocaleString('en-EN', { style: 'currency', currency: 'GBP' })
-	}, 1000);
-})
-
-stopMeetingButton.addEventListener('click', () => {
-	stopMeetingButton.setAttribute('disabled', true)
-	startMeetingButton.removeAttribute('disabled')
-	clearInterval(timer)
+		timer = setInterval(() => {
+			total = total + increment
+			const totalCost = document.getElementById('total')
+			totalCost.innerText = total.toLocaleString('en-EN', { style: 'currency', currency: 'GBP' })
+		}, 1000);
+	}
 })
 
 function displayAverageSalary() {

@@ -15,24 +15,35 @@
 		<h2>Current Cost</h2>
 		<p id="total">£0.00</p>
 
-		<div class="button-group">
-			<button id="startMeeting">Start</button>
-			<button id="stopMeeting" disabled>Stop</button>
-		</div>
-		<h2>Options</h2>
+		<button class="start" id="toggleMeeting">Start</button>
+		<div class="button-group"></div>
 
-		<label for="attendees">How many people in the meeting?</label>
-		<input type="number" name="attendees" id="attendees" value="2" min="1" />
-		<label for="averageSalary">Average Salary:</label>
-		<input
-			type="range"
-			name="averageSalary"
-			id="averageSalary"
-			step="5000"
-			min="40000"
-			max="150000"
-		/>
-		<span id="averageSalaryDisplay"></span>
+		<details class="options-collapsable">
+			<summary>
+				<h2 class="options-title">Options</h2>
+			</summary>
+
+			<div class="options">
+				<label class="attendees-label" for="attendees">
+					<span class="attendees-label-text">Number of people:</span>
+					<input type="number" name="attendees" id="attendees" value="2" min="1" />
+				</label>
+				<label class="salary-label" for="averageSalary">
+					<div class="salary-label-text">
+						<span>Average Salary:</span>
+						<span id="averageSalaryDisplay"></span>
+					</div>
+					<input
+						type="range"
+						name="averageSalary"
+						id="averageSalary"
+						step="5000"
+						min="40000"
+						max="150000"
+					/>
+				</label>
+			</div>
+		</details>
 	</body>
 
 	<script src="./main.js"></script>
