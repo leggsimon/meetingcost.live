@@ -69,6 +69,12 @@ button.pause {
 	--secondary: #e22f2f17;
 }
 
+button.currency-button {
+	width: 2.5em;
+	height: 2em;
+	font-size: 1em;
+}
+
 .options-collapsable {
 	margin: 2em;
 	min-width: 300px;
@@ -109,6 +115,16 @@ label {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+
+.currency-options {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.currency-buttons {
+	display: inline;
 }
 
 footer {

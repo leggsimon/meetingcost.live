@@ -1,11 +1,20 @@
+const totalCost = document.getElementById('total')
 const toggleMeetingButton = document.getElementById('toggleMeeting')
 const attendeesInput = document.getElementById('attendees')
 const averageSalaryInput = document.getElementById('averageSalary')
 const averageSalaryDisplay = document.getElementById('averageSalaryDisplay')
+const currencyButtons = document.querySelectorAll('.currency-buttons button')
+
+const CURRENCIES = {
+	'GBP': { langCode: 'en-EN', currencyCode: 'GBP' },
+	'EUR': { langCode: 'de-DE', currencyCode: 'EUR' },
+	'USD': { langCode: 'en-US', currencyCode: 'USD' },
+}
 
 let timer
 let total = 0
 let increment = 0
+let selectedCurrency = CURRENCIES['GBP']
 
 displayAverageSalary()
 
@@ -30,6 +39,18 @@ const calculateIncrement = () => {
 	})
 })
 
+currencyButtons.forEach(button => {
+	button.addEventListener('click', (event) => {
+		selectedCurrency = CURRENCIES[event.target.value]
+		displayAverageSalary()
+
+		totalCost.innerText = total.toLocaleString(
+			selectedCurrency.langCode,
+			{ style: 'currency', currency: selectedCurrency.currencyCode }
+		)
+	})
+})
+
 toggleMeetingButton.addEventListener('click', () => {
 	if (timer) {
 		timer = clearInterval(timer)
@@ -48,7 +69,10 @@ toggleMeetingButton.addEventListener('click', () => {
 		timer = setInterval(() => {
 			total = total + increment
 			const totalCost = document.getElementById('total')
-			const totalCostString = total.toLocaleString('en-EN', { style: 'currency', currency: 'GBP' })
+			const totalCostString = total.toLocaleString(
+				selectedCurrency.langCode,
+				{ style: 'currency', currency: selectedCurrency.currencyCode }
+			)
 			totalCost.innerText = totalCostString
 			document.title = `${totalCostString} – Meeting Cost Live`
 		}, 1000);
@@ -57,10 +81,13 @@ toggleMeetingButton.addEventListener('click', () => {
 
 function displayAverageSalary() {
 	const averageSalary = averageSalaryInput.valueAsNumber
-	averageSalaryDisplay.innerText = averageSalary.toLocaleString('en-EN', {
-		style: 'currency',
-		currency: 'GBP',
-		minimumFractionDigits: 0,
-		maximumFractionDigits: 0,
-	})
+	averageSalaryDisplay.innerText = averageSalary.toLocaleString(
+		selectedCurrency.langCode,
+		{
+			style: 'currency',
+			currency: selectedCurrency.currencyCode,
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0,
+		}
+	)
 }
