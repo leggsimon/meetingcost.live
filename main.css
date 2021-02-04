@@ -5,9 +5,18 @@ body {
 	font-family: sans-serif;
 	font-variant-caps: all-small-caps;
 	letter-spacing: 2px;
+	height: 100%;
 }
 
 body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	justify-content: space-between;
+}
+
+main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -100,4 +109,8 @@ label {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+}
+
+footer {
+	margin-bottom: 2em;
 }

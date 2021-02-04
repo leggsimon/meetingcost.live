@@ -12,47 +12,51 @@
 		<meta name="description" content="Find out how much do your meetings actually cost?" />
 	</head>
 	<body>
-		<h1>Meeting cost live</h1>
-		<h2>Current Cost</h2>
-		<p id="total">£0.00</p>
+		<main>
+			<h1>Meeting cost live</h1>
+			<h2>Current Cost</h2>
+			<p id="total">£0.00</p>
 
-		<button class="start" id="toggleMeeting">Start</button>
-		<div class="button-group"></div>
+			<button class="start" id="toggleMeeting">Start</button>
+			<div class="button-group"></div>
 
-		<details class="options-collapsable">
-			<summary>
-				<h2 class="options-title">Options</h2>
-			</summary>
+			<details class="options-collapsable">
+				<summary>
+					<h2 class="options-title">Options</h2>
+				</summary>
 
-			<div class="options">
-				<label class="attendees-label" for="attendees">
-					<span class="attendees-label-text">Number of people:</span>
-					<input
-						type="number"
-						pattern="[0-9]*"
-						name="attendees"
-						id="attendees"
-						value="2"
-						min="1"
-					/>
-				</label>
-				<label class="salary-label" for="averageSalary">
-					<div class="salary-label-text">
-						<span>Average Gross Salary:</span>
-						<span id="averageSalaryDisplay"></span>
-					</div>
-					<input
-						type="range"
-						name="averageSalary"
-						id="averageSalary"
-						step="5000"
-						value="50000"
-						min="30000"
-						max="150000"
-					/>
-				</label>
-			</div>
-		</details>
+				<div class="options">
+					<label class="attendees-label" for="attendees">
+						<span class="attendees-label-text">Number of people:</span>
+						<input
+							type="number"
+							pattern="[0-9]*"
+							name="attendees"
+							id="attendees"
+							value="2"
+							min="1"
+						/>
+					</label>
+					<label class="salary-label" for="averageSalary">
+						<div class="salary-label-text">
+							<span>Average Gross Salary:</span>
+							<span id="averageSalaryDisplay"></span>
+						</div>
+						<input
+							type="range"
+							name="averageSalary"
+							id="averageSalary"
+							step="5000"
+							value="50000"
+							min="30000"
+							max="150000"
+						/>
+					</label>
+				</div>
+			</details>
+		</main>
+
+		<footer>Made with ❤️ by <a href="https://twitter.com/simonleggsays">Simon</a></footer>
 	</body>
 
 	<script src="./main.js"></script>
