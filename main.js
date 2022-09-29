@@ -1,6 +1,8 @@
 const totalCost = document.getElementById('total')
 const toggleMeetingButton = document.getElementById('toggleMeeting')
+const calculateButton = document.getElementById('calculateTotal')
 const attendeesInput = document.getElementById('attendees')
+const totalMinutes = document.getElementById('minutes')
 const averageSalaryInput = document.getElementById('averageSalary')
 const averageSalaryDisplay = document.getElementById('averageSalaryDisplay')
 const currencyButtons = document.querySelectorAll('.currency-buttons button')
@@ -14,7 +16,7 @@ const CURRENCIES = {
 let timer
 let total = 0
 let increment = 0
-let selectedCurrency = CURRENCIES['GBP']
+let selectedCurrency = CURRENCIES['USD']
 
 displayAverageSalary()
 
@@ -39,6 +41,17 @@ const calculateIncrement = () => {
 	})
 })
 
+const calculateTotalCost = () => {
+	const meetingTime = totalMinutes.valueAsNumber || 0
+	return calculateIncrement() * meetingTime * 60
+}
+
+[attendeesInput, averageSalaryInput].forEach(input => {
+	input.addEventListener('input', () => {
+		increment = calculateIncrement()
+	})
+})
+
 currencyButtons.forEach(button => {
 	button.addEventListener('click', (event) => {
 		selectedCurrency = CURRENCIES[event.target.value]
@@ -50,6 +63,18 @@ currencyButtons.forEach(button => {
 		)
 	})
 })
+
+calculateButton.addEventListener('click', () => {
+	total = calculateTotalCost()
+	const totalCost = document.getElementById('total')
+	const totalCostString = total.toLocaleString(
+		selectedCurrency.langCode,
+		{ style: 'currency', currency: selectedCurrency.currencyCode }
+	)
+	totalCost.innerText = totalCostString
+	document.title = `${totalCostString} – Meeting Cost Live`
+})
+
 
 toggleMeetingButton.addEventListener('click', () => {
 	if (timer) {
