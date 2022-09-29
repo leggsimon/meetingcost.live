@@ -75,6 +75,12 @@ button.currency-button {
 	font-size: 1em;
 }
 
+button.calculate-total {
+	width: 9.5em;
+	height: 2em;
+	font-size: 0.8em;
+}
+
 .options-collapsable {
 	margin: 2em;
 	min-width: 300px;
@@ -104,6 +110,23 @@ label {
 
 .attendees-label input {
 	width: 3em;
+}
+
+.time-label {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1em;
+}
+
+.time-label input {
+	width: 3em;
+	height: 1.5em;
+}
+
+.time-label-text {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .salary-label {

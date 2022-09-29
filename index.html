@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Meeting Cost Live</title>
-		<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png" />
-		<link rel="manifest" href="/public/site.webmanifest" />
-		<link rel="stylesheet" href="./main.css" />
-		<meta name="description" content="Find out how much do your meetings actually cost?" />
-	</head>
-	<body>
-		<main>
-			<h1>Meeting cost live</h1>
-			<h2>Current Cost</h2>
-			<p id="total">£0.00</p>
 
-			<button class="start" id="toggleMeeting">Start</button>
-			<div class="button-group"></div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meeting Cost Live</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png" />
+    <link rel="manifest" href="/public/site.webmanifest" />
+    <link rel="stylesheet" href="./main.css" />
+    <meta name="description" content="Find out how much do your meetings actually cost?" />
+</head>
 
-			<details class="options-collapsable">
-				<summary>
-					<h2 class="options-title">Options</h2>
-				</summary>
+<body>
+    <main>
+        <h1>Meeting cost live</h1>
+        <h2>Current Cost</h2>
+        <p id="total">$0.00</p>
+        <button class="start" id="toggleMeeting">Start</button>
+        <div class="button-group"></div>
 
-				<div class="options">
-					<label class="attendees-label" for="attendees">
-						<span class="attendees-label-text">Number of people:</span>
-						<input
-							type="number"
-							pattern="[0-9]*"
-							name="attendees"
-							id="attendees"
-							value="2"
-							min="1"
-						/>
-					</label>
-					<label class="salary-label" for="averageSalary">
-						<div class="salary-label-text">
-							<span>Average Gross Salary:</span>
-							<span id="averageSalaryDisplay"></span>
-						</div>
-						<input
-							type="range"
-							name="averageSalary"
-							id="averageSalary"
-							step="5000"
-							value="50000"
-							min="20000"
-							max="150000"
-						/>
-					</label>
-					<div class="currency-options">
-						<span>Currency:</span>
-						<div class="currency-buttons">
-							<button class="currency-button" value="GBP">£</button>
-							<button class="currency-button" value="EUR">€</button>
-							<button class="currency-button" value="USD">$</button>
-						</div>
-					</div>
-				</div>
-			</details>
-		</main>
+        <details class="options-collapsable">
+            <summary>
+                <h2 class="options-title">Options</h2>
+            </summary>
 
-		<footer>Made with ❤️ by <a href="https://twitter.com/simonleggsays">Simon</a></footer>
-	</body>
-
-	<script src="./main.js"></script>
+            <div class="options">
+                <label class="attendees-label" for="attendees">
+                    <span class="attendees-label-text">Number of people:</span>
+                    <input 
+                        type="number"
+                        pattern="[0-9]*"
+                        name="attendees"
+                        id="attendees"
+                        value="2"
+                        min="1" />
+                </label>
+                <label class="salary-label" for="averageSalary">
+                    <div class="salary-label-text">
+                        <span>Average Gross Salary:</span>
+                        <span id="averageSalaryDisplay"></span>
+                    </div>
+                    <input 
+                        type="range" 
+                        name="averageSalary" 
+                        id="averageSalary" 
+                        step="5000" 
+                        value="50000"
+                        min="20000"
+                        max="500000" />
+                </label>
+                <div class="currency-options">
+                    <span>Currency:</span>
+                    <div class="currency-buttons">
+                        <button class="currency-button" value="USD">$</button>
+                        <button class="currency-button" value="GBP">£</button>
+                        <button class="currency-button" value="EUR">€</button>
+                    </div>
+                </div>
+                <label class="time-label" for="time-label-text">
+                    <span class="time-label-text">Total minutes:</span>
+                    <input type="number" name="minutes" value="30" step="10" id="minutes">
+                    <button id="calculateTotal" class="calculate-total">Calculate</button>
+                </label>
+            </div>
+        </details>
+    </main>
+    <footer>Made with ❤️ by <a href="https://twitter.com/simonleggsays">Simon</a></footer>
+    <script src="./main.js"></script>
+</body>
 </html>
